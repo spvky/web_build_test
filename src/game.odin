@@ -1,8 +1,6 @@
 package game
 
 import rl "vendor:raylib"
-import "core:log"
-import "core:fmt"
 import "core:c"
 
 run: bool

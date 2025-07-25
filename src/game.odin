@@ -12,7 +12,6 @@ render_texture: rl.RenderTexture
 GAME_NAME :: "Cool game"
 SCREEN_WIDTH :: 480
 SCREEN_HEIGHT :: 360
-BACKGROUND_COLOR: [4]u8 : {0, 0, 0, 255}
 WINDOW_WIDTH: i32
 WINDOW_HEIGHT: i32
 
@@ -33,14 +32,15 @@ init :: proc() {
 render_scene :: proc() {
 	rl.BeginTextureMode(render_texture)
 	// Draw objects here
-	rl.ClearBackground(BACKGROUND_COLOR)
+	rl.DrawCircleV({0, 0}, 800, rl.BLUE)
+	rl.ClearBackground(rl.RED)
 	rl.EndTextureMode()
 }
 
 update :: proc() {
-	draw_render_texture()
+	render_scene()
 	rl.BeginDrawing()
-	rl.ClearBackground(BACKGROUND_COLOR)
+	rl.ClearBackground(rl.BLACK)
 	// Draw the render texture to the screen
 	rl.DrawTexturePro(
 		render_texture.texture,
